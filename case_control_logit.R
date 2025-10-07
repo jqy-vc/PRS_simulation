@@ -76,7 +76,7 @@ for (sim_iter in seq_len(n_sims)) {
     snp_name <- paste0("SNP_", i)
     formula <- as.formula(paste("Y ~", snp_name))
     current_model <- tryCatch(
-      lm(formula, data = data_train_df),
+      glm(formula, data = data_train_df),
       error = function(e) NULL
     )
     if (is.null(current_model)) {
